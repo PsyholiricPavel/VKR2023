@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/images/252311.png" type="image/png">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/authorization.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/menu.js') }}"></script>
+</body>
+</html>

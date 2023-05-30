@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+GitHub logger
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/authorization.css') }}">
+<div class="login-page">    
+    <div class="form">
+      <div class="logo"><img class="logo" src="../static/images/logo.png"></div>
+      <p class="header">video analyzer</p>
+      <form class="register-form" method="POST">
+        <input type="text" name="RegUsername" placeholder="Username">
+        <input type="password" name="RegPassword" placeholder="Password">
+        <input type="text" name="Token" placeholder="Token">
+        <input type="submit" id="btn" value="create">
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form>
+      <form class="login-form" method="POST">
+        <input type="text" name="LoginUsername" placeholder="Username"/>
+        <input type="password" name="LoginPassword" placeholder="Password"/>
+        <input type="submit" id="btn" value="login">
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+<script>
+  var main_2 = function(){
+    {% if not valid_reg %}
+    $('.register-form input').attr('style', 'border-color: red');
+    $('.login-form').attr('style', 'display: none')
+    $('.register-form').attr('style', 'display: block')
+
+    {% endif %}
+    {% if not valid_login %}
+      $('.login-form input').attr('style', 'border-color: red');
+
+    {% endif %}
+  };
+</script>
+{% endblock %}

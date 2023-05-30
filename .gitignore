@@ -1,3 +1,4 @@
-.venv/
+venv/
 __pycache__/
-videos/
+app/videos/
+app/img/

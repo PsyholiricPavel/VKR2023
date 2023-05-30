@@ -1,0 +1,9 @@
+Flask==2.3.2
+opencv-python==4.7.0.72
+Jinja2==3.1.2
+numpy==1.24.3
+matplotlib== 3.7.1
+pymongo==4.3.3
+matplotlib==3.7.1
+sympy==1.12
+apscheduler==3.10.1

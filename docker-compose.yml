@@ -1,0 +1,28 @@
+version: "3"
+services:
+  app:
+    container_name: app
+    build: ./app/
+    command: python3 -u app/app.py --host db
+    volumes:
+    - .:/app
+    ports:
+      - "5000:5000"
+    links:
+      - mongo
+    networks:
+      - backend
+      - frontend
+
+  mongo:
+    image: mongo:6.0.2
+    container_name: VKR_mongo
+    networks:
+      - backend
+
+
+networks:
+  backend:
+    driver: "bridge"
+  frontend:
+    driver: "bridge"

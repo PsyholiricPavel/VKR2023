@@ -1,0 +1,26 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% block title %}
+Обработчик
+{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+<form method="POST">
+  <input type="hidden" name="LogOut" value="1">
+  <input class="log-out" type="submit" value="LOG OUT"/>
+  </form>
+    <h1>Выберете действие</h1>
+    <form action = "/upload"  method=post enctype=multipart/form-data>
+      <input type=file id="btn" name=file multiple />
+      <input type=submit id="btn" value=Upload>
+    </form>
+    <form method="post">
+        <input type="submit"id="btn" value="Выбор Видео для удаления" name="action5"/><br>
+        <input type="submit" id="btn" value="Обработать все видео" name="action1"/><br>
+        <input type="submit"id="btn" value="Обработать видео за сегодня(не работает)" name="action2"/><br>
+        <input type="submit" id="btn"value="Обработать выбранные видео" name="action3"/><br>
+        <input type="submit"id="btn" value="Построить график проходимости" name="action4"/>
+
+    </form>
+    {% endblock %}
+    </html>

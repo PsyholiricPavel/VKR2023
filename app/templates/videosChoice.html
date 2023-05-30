@@ -1,0 +1,34 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% block title %}
+Выбор обрабатываемых видео
+{% endblock %}
+{% block body %}
+<form method="POST">
+    <input type="hidden" name="LogOut" value="1">
+    <input class="log-out" type="submit" value="LOG OUT"/>
+    </form>
+<h1>Выбор видео для обработки</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+
+<form method="post">
+    <input type="submit" id="btn" value="Назад" name="action2"/>
+    <input type="button" id="btn" value="Выделить все" onclick="check(this.form.videocheckbox, 1)">
+    <input type="button"id="btn" value="Снять выделение" onclick="check(this.form.videocheckbox, 0)">
+    <input type="submit" id="btn" value="Выделить необработанные" name="action1">
+    <input type="submit" id="btn" value="Обработать" name="action0"/>
+    <ul>
+        {% for message in videos %}
+            <li><input type="checkbox" id={{message._id}} name="videocheckbox" value="{{message._id}}" {% if not message.Analized %}checked{% endif %}>{{ message.Path+'/'+message.Name }}</li>
+        {% endfor %}
+    </ul>
+</form>
+<script type="text/javascript">
+    function check(field, flag,videos) {
+     if (flag==1) { for (i=0; i<field.length; i++) field[i].checked = true; }
+     else if (flag==0) { for (i=0; i<field.length; i++) field[i].checked = false; } 
+    }
+    
+</script>
+{% endblock %}
+    </html>
